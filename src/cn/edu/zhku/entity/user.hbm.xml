@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!--配置类和表 对应  
+		name：类的全名 包括包名
+		table：表示 要自动生成的  表名
+	-->
+	<class name="cn.edu.zhku.entity.User" table="t_user">
+		<!-- 设置实体类 id和 数据库 表字段 id 对应 -->
+		<id name="uid" column="uid">
+			<!-- 设置数据库 表 id 生长策略  
+				native:生成表 id 为主键 自动生成
+			-->
+			<generator class="native"></generator>
+		</id>
+		
+		<!--配置 其他属性  与 表 字段 对应  -->
+		<property name="username" column="username"></property>
+		<property name="password" column="password"></property>
+		<property name="address" column="address"></property>
+	</class>
+</hibernate-mapping>

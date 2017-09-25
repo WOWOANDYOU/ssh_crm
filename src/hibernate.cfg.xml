@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC     
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"     
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- hibernate 的核心配置文件 名称  hibernate.cfg.xml  是固定的 -->
+	<!--SessionFactory 是 hibernate 中的一个 类 主要负责保存 hibernate 的信息 -->
+	<session-factory>
+		<!--第一部分  配置 数据库信息  必须要做driver_class  url  username  password -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_day01</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<!-- 第二部分 配置 hibernate 信息 可选  -->
+		<!-- 输出底层sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 格式化输出sql语句 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- hibernate 帮创建表  -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 方言的配置  
+			mysql 和 oracle 或者其他的数据库 中  sql语句是有区别的  这里要做的就是告诉 hibernate
+		 -->
+		 <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		 
+		 <!-- 第三部分 把映射文件放到 核心配置文件中-->
+		 <mapping resource="cn/edu/zhku/entity/user.hbm.xml"/>
+		 <mapping resource="cn/edu/zhku/entity/customer.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>  

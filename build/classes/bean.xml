@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ssh_crm"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	<!-- 将SessionFactory 对象交给 spring来管理 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 由于在hibernate中没有配置数据库的东西 数据库的配置交给了spring配置 所以 要 在这里 注入 属性 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定hibernate的核心配置文件 -->
+		<!-- 也可以 在spring配置文件中配置好 hibernate中的配置 就可以不用創建hibernate配置文件了 <property 
+			name="configLocations" value="classpath:hibernate.cfg.xml"></property> -->
+		<!-- 配置hibernate的基本信息 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+		<!-- 将设置文件引入配置 -->
+		<property name="mappingResources">
+			<list>
+				<value>cn/edu/zhku/entity/user.hbm.xml</value>
+				<value>cn/edu/zhku/entity/customer.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<!-- 本来是注入 dataSource的 但是 由于在dataSource bean中已经配置注入了 dataSource 所以可以注入 
+			sessionfactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--开启事务注解 并用 transaction-manager指定用哪个事务管理器 之后在service类中 加入事务 -->
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+	
+	<bean id="userAction" class="cn.edu.zhku.action.UserAction" scope="prototype">
+		<property name="userservice" ref="userservice"></property>
+	</bean>
+	
+	<bean id="userservice" class="cn.edu.zhku.service.UserService">
+		<property name="userDao" ref="userDaoImpl"></property>
+	</bean>
+	
+	<bean id="userDaoImpl" class="cn.edu.zhku.dao.UserDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<import resource="classpath:customer.xml"/>
+</beans>
