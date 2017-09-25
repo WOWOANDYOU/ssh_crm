@@ -1,5 +1,8 @@
 package cn.edu.zhku.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Customer {
 	private Integer cid;
 	private String custName;
@@ -7,6 +10,16 @@ public class Customer {
 	private String custSource;
 	private String custPhone;
 	private String custMobile;
+	
+	//配置 客户 和联系人的关系  一个客户 对应多个联系人
+	private Set<LinkMan> setLinkman = new HashSet<LinkMan>();
+	
+	public Set<LinkMan> getSetLinkman() {
+		return setLinkman;
+	}
+	public void setSetLinkman(Set<LinkMan> setLinkman) {
+		this.setLinkman = setLinkman;
+	}
 	public Integer getCid() {
 		return cid;
 	}

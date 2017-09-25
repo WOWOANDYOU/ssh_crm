@@ -38,6 +38,7 @@
 			<list>
 				<value>cn/edu/zhku/entity/user.hbm.xml</value>
 				<value>cn/edu/zhku/entity/customer.hbm.xml</value>
+				<value>cn/edu/zhku/entity/linkMan.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

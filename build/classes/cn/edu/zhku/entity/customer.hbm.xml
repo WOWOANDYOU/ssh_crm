@@ -22,5 +22,12 @@
 		<property name="custSource" column="custSource"></property>
 		<property name="custPhone" column="custPhone"></property>
 		<property name="custMobile" column="custMobile"></property>
+		
+		<!-- 配置外键 一对多的关系 -->
+		<set name="setLinkman">
+			<!-- 配置外键 -->
+			<key column="clid"></key>
+			<one-to-many class="cn.edu.zhku.entity.LinkMan"/>
+		</set>
 	</class>
 </hibernate-mapping>
