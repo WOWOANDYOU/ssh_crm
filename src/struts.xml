@@ -3,6 +3,8 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<!-- 设置上传文件的限制大小 -->
+	<constant name="struts.multipart.maxSize" value="209715200"></constant>
 	<package name="demo1" extends="struts-default" namespace="/">
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="loginsuccess">/index.htm</result>
@@ -23,6 +25,26 @@
 			<result name="listpage">/jsp/customer/listpage.jsp</result>
 			
 			<result name="conditionpage">/jsp/customer/list.jsp</result>
+		</action>
+		
+		<action name="linkman_*" class="linkmanAction" method="{1}">
+			<result name="toaddpage">/jsp/linkman/add.jsp</result>
+			<!-- 重定向到 另外一个action中 -->
+			<result name="add" type="redirectAction">linkman_findAllLinkMan</result>
+			<result name="showlinks">/jsp/linkman/list.jsp</result>
+			<!-- 设置错误页面 -->
+			<result name="input">/jsp/error.jsp</result>
+			
+			<result name="toeditpage">/jsp/linkman/edit.jsp</result>
+			
+			<result name="update" type="redirectAction">linkman_findAllLinkMan</result>
+			
+			
+			<!-- <result name="updateCust" type="redirectAction">customer_findAllCust</result> -->
+			
+			<!-- <result name="listpage">/jsp/customer/listpage.jsp</result> -->
+			
+			<!-- <result name="conditionpage">/jsp/customer/list.jsp</result> -->
 		</action>
 	</package>
 

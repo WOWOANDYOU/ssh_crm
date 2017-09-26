@@ -85,20 +85,24 @@
 													<TD>性别</TD>
 													<TD>办公电话</TD>
 													<TD>手机</TD>
+													<td>客户</td>
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${list }" var="linkman">
+												<c:forEach items="${listlink }" var="linkman">
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${linkman.lkmName }</TD>
-													<TD>${linkman.lkmGender }</TD>
-													<TD>${linkman.lkmPhone }</TD>
-													<TD>${linkman.lkmMobile }</TD>
+													<TD>${linkman.linkName }</TD>
+													<TD>${linkman.linkGender }</TD>
+													<TD>${linkman.linkPhone }</TD>
+													<TD>${linkman.linkMobile }</TD>
+													
+													<!-- 这个如果在struts配置文件中 在StrutsPrepareAndExecuteFilter过滤器 前 中没有配置openSessionInViewFilter -->
+													<td>${linkman.customer.custName }</td>
 													
 													<TD>
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=edit&lkmId=${linkman.lkmId}">修改</a>
+													<a href="${pageContext.request.contextPath }/linkman_toeditpage?linkid=${linkman.linkid}">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/linkmanServlet?method=delete&lkmId=${linkman.lkmId}">删除</a>
+													<a href="${pageContext.request.contextPath }/linkmanServlet?method=delete&lkmId=${linkman.linkid}">删除</a>
 													</TD>
 												</TR>
 												
