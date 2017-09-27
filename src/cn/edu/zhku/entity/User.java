@@ -1,10 +1,22 @@
 package cn.edu.zhku.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
 	private Integer uid;
 	private String username;
 	private String password;
 	private String address;
+	//一个用户 可以有多个 拜访客户的记录
+	Set<Visit> setvisit = new HashSet<Visit>();
+	
+	public Set<Visit> getSetvisit() {
+		return setvisit;
+	}
+	public void setSetvisit(Set<Visit> setvisit) {
+		this.setvisit = setvisit;
+	}
 	public Integer getUid() {
 		return uid;
 	}

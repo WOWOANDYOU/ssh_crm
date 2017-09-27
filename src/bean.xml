@@ -39,6 +39,7 @@
 				<value>cn/edu/zhku/entity/user.hbm.xml</value>
 				<value>cn/edu/zhku/entity/customer.hbm.xml</value>
 				<value>cn/edu/zhku/entity/linkMan.hbm.xml</value>
+				<value>cn/edu/zhku/entity/visit.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -53,22 +54,23 @@
 
 	<!--开启事务注解 并用 transaction-manager指定用哪个事务管理器 之后在service类中 加入事务 -->
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
-	
+
 	<bean id="userAction" class="cn.edu.zhku.action.UserAction" scope="prototype">
 		<property name="userservice" ref="userservice"></property>
 	</bean>
-	
+
 	<bean id="userservice" class="cn.edu.zhku.service.UserService">
 		<property name="userDao" ref="userDaoImpl"></property>
 	</bean>
-	
+
 	<bean id="userDaoImpl" class="cn.edu.zhku.dao.UserDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	</bean>
-	
+
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<import resource="classpath:customer.xml"/>
-	<import resource="classpath:linkman.xml"/>
+	<import resource="classpath:customer.xml" />
+	<import resource="classpath:linkman.xml" />
+
 </beans>

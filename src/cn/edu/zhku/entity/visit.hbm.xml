@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!--配置类和表 对应 name：类的全名 包括包名 table：表示 要自动生成的 表名 -->
+	<class name="cn.edu.zhku.entity.Visit" table="t_visit">
+		<!-- 设置实体类 id和 数据库 表字段 id 对应 -->
+		<id name="vid" column="vid">
+			<!-- 设置数据库 表 id 生长策略 native:生成表 id 为主键 自动生成 -->
+			<generator class="native"></generator>
+		</id>
+
+		<!--配置 其他属性 与 表 字段 对应 -->
+		<property name="vaddress" column="vaddress"></property>
+		<property name="vcontent" column="vcontent"></property>
+		
+		<!-- 表示联系人 所属客户 name是LinkMan中 客户 变量名 class是客户 类全路径 column 是 客户中配置的外键的 column值 -->
+		<many-to-one name="user" class="cn.edu.zhku.entity.User"
+			column="uvid"></many-to-one>
+			
+		<many-to-one name="customer" class="cn.edu.zhku.entity.Customer"
+			column="cvid"></many-to-one>
+	</class>
+</hibernate-mapping>

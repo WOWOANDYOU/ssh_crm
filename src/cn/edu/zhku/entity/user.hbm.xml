@@ -20,5 +20,11 @@
 		<property name="username" column="username"></property>
 		<property name="password" column="password"></property>
 		<property name="address" column="address"></property>
+		
+		<set name="setvisit">
+			<!-- 配置外键 -->
+			<key column="uvid"></key>
+			<one-to-many class="cn.edu.zhku.entity.Visit"/>
+		</set>
 	</class>
 </hibernate-mapping>

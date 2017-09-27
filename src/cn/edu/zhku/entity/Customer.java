@@ -14,6 +14,15 @@ public class Customer {
 	//配置 客户 和联系人的关系  一个客户 对应多个联系人
 	private Set<LinkMan> setLinkman = new HashSet<LinkMan>();
 	
+	//一个 客户也可以有多个 被拜访的记录
+	private Set<Visit> setvisit = new HashSet<Visit>();
+	
+	public Set<Visit> getSetvisit() {
+		return setvisit;
+	}
+	public void setSetvisit(Set<Visit> setvisit) {
+		this.setvisit = setvisit;
+	}
 	public Set<LinkMan> getSetLinkman() {
 		return setLinkman;
 	}

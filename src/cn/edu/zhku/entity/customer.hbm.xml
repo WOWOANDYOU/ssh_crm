@@ -33,5 +33,10 @@
 			<key column="clid"></key>
 			<one-to-many class="cn.edu.zhku.entity.LinkMan"/>
 		</set>
+		
+		<set name="setvisit">
+			<key column="cvid"></key>
+			<one-to-many class="cn.edu.zhku.entity.Visit"/>
+		</set>
 	</class>
 </hibernate-mapping>
