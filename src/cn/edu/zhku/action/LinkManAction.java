@@ -116,4 +116,9 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		linkmanservice.update(linkman);
 		return "update";
 	}
+	//É¾³ıÁªÏµÈË
+	public String delete() {
+		linkmanservice.delete(linkman);
+		return "deletelinkman";
+	}
 }

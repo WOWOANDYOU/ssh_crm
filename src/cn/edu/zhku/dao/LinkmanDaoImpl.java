@@ -36,5 +36,7 @@ public class LinkmanDaoImpl implements LinkmanDao {
 	public void update(LinkMan linkman) {
 		this.hibernateTemplate.update(linkman);
 	}
-	
+	public void delete(LinkMan linkman) {
+		this.hibernateTemplate.delete(linkman);
+	}
 }

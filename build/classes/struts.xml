@@ -25,6 +25,8 @@
 			<result name="listpage">/jsp/customer/listpage.jsp</result>
 			
 			<result name="conditionpage">/jsp/customer/list.jsp</result>
+			<!-- 设置错误页面 -->
+			<result name="input">/jsp/error.jsp</result>
 		</action>
 		
 		<action name="linkman_*" class="linkmanAction" method="{1}">
@@ -39,7 +41,7 @@
 			
 			<result name="update" type="redirectAction">linkman_findAllLinkMan</result>
 			
-			
+			<result name="deletelinkman" type="redirectAction">linkman_findAllLinkMan</result>
 			<!-- <result name="updateCust" type="redirectAction">customer_findAllCust</result> -->
 			
 			<!-- <result name="listpage">/jsp/customer/listpage.jsp</result> -->

@@ -29,5 +29,10 @@ public class LinkmanService {
 	public void update(LinkMan linkman) {
 		linkmandao.update(linkman);		
 	}
+
+	public void delete(LinkMan linkman) {
+		linkmandao.delete(linkman);
+		
+	}
 	
 }

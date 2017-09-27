@@ -12,4 +12,6 @@ public interface LinkmanDao {
 	public LinkMan findOne(Integer linkid);
 
 	public void update(LinkMan linkman);
+
+	public void delete(LinkMan linkman);
 }	

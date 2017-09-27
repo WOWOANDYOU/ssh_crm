@@ -23,8 +23,12 @@
 		<property name="custPhone" column="custPhone"></property>
 		<property name="custMobile" column="custMobile"></property>
 		
-		<!-- 配置外键 一对多的关系 -->
-		<set name="setLinkman">
+		<!-- 配置外键 一对多的关系   inverse=默认是 false 表示 维护关系 设置为 false 不维护关系 修改客户信息 联系人中客户信息就会随着改变
+			级联删除  cascade="delete" 级联更新 save-update
+			 
+		-->
+		
+		<set name="setLinkman" inverse="true" cascade="delete" >
 			<!-- 配置外键 -->
 			<key column="clid"></key>
 			<one-to-many class="cn.edu.zhku.entity.LinkMan"/>
