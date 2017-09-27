@@ -121,4 +121,10 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		linkmanservice.delete(linkman);
 		return "deletelinkman";
 	}
+	//根据联系人名字查询
+	public String findOne() {
+		List<LinkMan> listlink = linkmanservice.findOne(linkman.getLinkName());
+		ServletActionContext.getRequest().setAttribute("listlink", listlink);
+		return "findpage";
+	}
 }

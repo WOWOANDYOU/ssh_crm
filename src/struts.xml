@@ -42,6 +42,8 @@
 			<result name="update" type="redirectAction">linkman_findAllLinkMan</result>
 			
 			<result name="deletelinkman" type="redirectAction">linkman_findAllLinkMan</result>
+			<result name="findpage">/jsp/linkman/list.jsp</result>
+			
 			<!-- <result name="updateCust" type="redirectAction">customer_findAllCust</result> -->
 			
 			<!-- <result name="listpage">/jsp/customer/listpage.jsp</result> -->

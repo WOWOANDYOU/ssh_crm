@@ -39,4 +39,10 @@ public class LinkmanDaoImpl implements LinkmanDao {
 	public void delete(LinkMan linkman) {
 		this.hibernateTemplate.delete(linkman);
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<LinkMan> findbyName(String linkName) {
+		return (List<LinkMan>) this.hibernateTemplate.find("from LinkMan where linkName=?", linkName);
+	}
 }

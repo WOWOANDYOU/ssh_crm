@@ -34,5 +34,10 @@ public class LinkmanService {
 		linkmandao.delete(linkman);
 		
 	}
+
+	public List<LinkMan> findOne(String linkName) {
+		return linkmandao.findbyName(linkName);
+		
+	}
 	
 }

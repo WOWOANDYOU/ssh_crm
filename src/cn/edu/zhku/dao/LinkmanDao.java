@@ -14,4 +14,6 @@ public interface LinkmanDao {
 	public void update(LinkMan linkman);
 
 	public void delete(LinkMan linkman);
+
+	public List<LinkMan> findbyName(String linkName);
 }	
