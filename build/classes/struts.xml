@@ -50,6 +50,20 @@
 			
 			<!-- <result name="conditionpage">/jsp/customer/list.jsp</result> -->
 		</action>
+		
+		<action name="visit_*" class="visitAction" method="{1}">
+			<result name="toaddpage">/jsp/visit/add.jsp</result>
+			<result name="showall">/jsp/visit/list.jsp</result>
+			<!-- 设置错误页面 -->
+			<result name="input">/jsp/error.jsp</result>
+			
+			<result name="toeditpage">/jsp/linkman/edit.jsp</result>
+			
+			<result name="update" type="redirectAction">linkman_findAllLinkMan</result>
+			
+			<result name="deletelinkman" type="redirectAction">linkman_findAllLinkMan</result>
+			<result name="findpage">/jsp/linkman/list.jsp</result>
+		</action>
 	</package>
 
 </struts>

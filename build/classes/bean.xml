@@ -72,5 +72,6 @@
 	</bean>
 	<import resource="classpath:customer.xml" />
 	<import resource="classpath:linkman.xml" />
+	<import resource="classpath:visit.xml" />
 
 </beans>

@@ -1,5 +1,7 @@
 package cn.edu.zhku.service;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.edu.zhku.dao.UserDao;
@@ -13,5 +15,8 @@ public class UserService {
 	}
 	public User login(User user) {
 		return userDao.loginUser(user);
+	}
+	public List<User> findall() {
+		return userDao.findall();
 	}
 }

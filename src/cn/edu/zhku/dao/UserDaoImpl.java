@@ -23,5 +23,10 @@ public class UserDaoImpl implements UserDao {
 		}
 		return null;
 	}
+
+	@Override
+	public List<User> findall() {
+		return (List<User>) this.hibernateTemplate.find("from User");
+	}
 	
 }
