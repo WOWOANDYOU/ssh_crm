@@ -53,7 +53,7 @@ public class VisitAction extends ActionSupport implements ModelDriven<Visit>{
 	}
 	public String add() {
 		visitservice.save(visit);
-		return "showall";
+		return "toshowall";
 	}
 	
 	public String showall() {

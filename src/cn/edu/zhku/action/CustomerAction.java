@@ -109,4 +109,10 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return "conditionpage";
 	}
 	
+	//多条件查询
+	public String findcomplex() {
+		List<Customer> custlist = customerservice.findcomplex(customer);
+		ServletActionContext.getRequest().setAttribute("custlist", custlist);
+		return "selectpage";
+	}
 }

@@ -101,5 +101,32 @@ public class CustomerDaoImpl implements CustomerDao {
 	    list = (List<Customer>) this.hibernateTemplate.findByCriteria(criteria);
 		return list;
 	}
+
+	//复杂条件 多条件下查询
+	@Override
+	public List<Customer> findcomplex(Customer customer) {
+		//因为 条件之间有多组合 所以sql语句需要 拼接
+		String sql = "from Customer where 1=1";
+		
+		//将 参数放到 ArrayList中
+		ArrayList<String> array = new ArrayList<String>();
+		if(customer.getCustName()!=null && !"".equals(customer.getCustName())) {
+			sql = sql+" and custName=?";
+			array.add(customer.getCustName());
+		}
+		if(customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())) {
+			sql = sql+" and custLevel=?";
+			array.add(customer.getCustLevel());
+		}
+		if(customer.getCustSource()!=null && !"".equals(customer.getCustSource())) {
+			sql = sql+" and custSource=?";
+			array.add(customer.getCustSource());
+		}
+		
+		//将 查询参数放入
+		@SuppressWarnings("unchecked")
+		List<Customer> list = (List<Customer>) this.hibernateTemplate.find(sql, array.toArray());
+		return list;
+	}
 	
 }

@@ -13,4 +13,5 @@ public interface CustomerDao {
 	public int findTotalCount();
 	public List<Customer> findlistPage(int begin, int pageSize);
 	public List<Customer> findCondition(Customer customer);
+	public List<Customer> findcomplex(Customer customer);
 }

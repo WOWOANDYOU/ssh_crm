@@ -62,5 +62,9 @@ public class CustomerService {
 	public List<Customer> findCondition(Customer customer) {
 		return customerdao.findCondition(customer);
 	}
+	public List<Customer> findcomplex(Customer customer) {
+		List<Customer> list = customerdao.findcomplex(customer);
+		return list;
+	}
 	
 }
