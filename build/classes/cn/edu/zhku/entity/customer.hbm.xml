@@ -18,7 +18,7 @@
 		
 		<!--配置 其他属性  与 表 字段 对应  -->
 		<property name="custName" column="custName"></property>
-		<property name="custLevel" column="custLevel"></property>
+		<!-- <property name="custLevel" column="custLevel"></property> -->
 		<property name="custSource" column="custSource"></property>
 		<property name="custPhone" column="custPhone"></property>
 		<property name="custMobile" column="custMobile"></property>
@@ -38,5 +38,6 @@
 			<key column="cvid"></key>
 			<one-to-many class="cn.edu.zhku.entity.Visit"/>
 		</set>
+		<many-to-one name="dict" class="cn.edu.zhku.entity.Dict" column="did"></many-to-one>
 	</class>
 </hibernate-mapping>

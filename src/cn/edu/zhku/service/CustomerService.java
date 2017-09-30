@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cn.edu.zhku.dao.CustomerDao;
 import cn.edu.zhku.entity.Customer;
+import cn.edu.zhku.entity.Dict;
 import cn.edu.zhku.entity.PageBean;
 @Transactional  //在service中 要开启事务 的注解  不然会报  Transaction readonly commit/auto 错误
 public class CustomerService {
@@ -65,6 +66,9 @@ public class CustomerService {
 	public List<Customer> findcomplex(Customer customer) {
 		List<Customer> list = customerdao.findcomplex(customer);
 		return list;
+	}
+	public List<Dict> findcustlevel() {
+		return customerdao.findcustlevel();
 	}
 	
 }

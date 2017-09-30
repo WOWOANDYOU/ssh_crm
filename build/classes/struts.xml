@@ -19,6 +19,8 @@
 			
 			<result name="selectpage">/jsp/customer/selectlist.jsp</result>
 			
+			<result name="goselectpage">/jsp/customer/select.jsp</result>
+			
 			<result name="delete" type="redirectAction">customer_findAllCust</result>
 			
 			<result name="toeditpage">/jsp/customer/edit.jsp</result>

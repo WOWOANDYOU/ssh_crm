@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.edu.zhku.entity.Customer;
+import cn.edu.zhku.entity.Dict;
 import cn.edu.zhku.entity.PageBean;
 import cn.edu.zhku.service.CustomerService;
 
@@ -34,6 +35,8 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
 	//1 µ½Ìí¼ÓÒ³Ãæ
 	public String toadd() {
+		List<Dict> listdict = customerservice.findcustlevel();
+		ServletActionContext.getRequest().setAttribute("listdict", listdict);
 		return "toaddpage";
 	}
 	
@@ -114,5 +117,10 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		List<Customer> custlist = customerservice.findcomplex(customer);
 		ServletActionContext.getRequest().setAttribute("custlist", custlist);
 		return "selectpage";
+	}
+	public String beforeselect() {
+		List<Dict> dictlist = customerservice.findcustlevel();
+		ServletActionContext.getRequest().setAttribute("dictlist", dictlist);
+		return "goselectpage";
 	}
 }

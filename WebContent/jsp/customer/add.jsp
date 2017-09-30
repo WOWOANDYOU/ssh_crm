@@ -52,13 +52,20 @@
 							<TR>
 								<td>客户名称：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
+								<INPUT class=textbox id=sChannel2 
 														style="WIDTH: 180px" maxLength=50 name="custName">
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custLevel">
+								<!-- <INPUT class=textbox id=sChannel2
+														style="WIDTH: 180px" maxLength=50 name="custLevel"> -->
+									<select name="dict.did">
+										<option value="0" >请选择</option>
+										<c:forEach items="${listdict }" var="dict">
+											<option value="${dict.did}">${dict.dname }</option>
+										</c:forEach>
+									</select>
+									
 								</td>
 							</TR>
 							

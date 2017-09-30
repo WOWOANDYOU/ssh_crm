@@ -94,7 +94,7 @@
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${customer.custName }</TD>
-													<TD>${customer.custLevel }</TD>
+													<TD>${customer.dict.dname }</TD>
 													<TD>${customer.custSource }</TD>
 													<%-- <TD>${customer.custLinkman }</TD> --%>
 													<TD>${customer.custPhone }</TD>

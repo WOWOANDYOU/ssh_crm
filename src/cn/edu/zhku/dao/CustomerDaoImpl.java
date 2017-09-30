@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import cn.edu.zhku.entity.Customer;
+import cn.edu.zhku.entity.Dict;
 
 public class CustomerDaoImpl implements CustomerDao {
 	private HibernateTemplate hibernateTemplate;
@@ -114,9 +115,13 @@ public class CustomerDaoImpl implements CustomerDao {
 			sql = sql+" and custName=?";
 			array.add(customer.getCustName());
 		}
-		if(customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())) {
+		/*if(customer.getCustLevel()!=null && !"".equals(customer.getCustLevel())) {
 			sql = sql+" and custLevel=?";
 			array.add(customer.getCustLevel());
+		}*/
+		if(!"0".equals(customer.getDict().getDid())) {
+			sql = sql+" and did=?";
+			array.add(customer.getDict().getDid());
 		}
 		if(customer.getCustSource()!=null && !"".equals(customer.getCustSource())) {
 			sql = sql+" and custSource=?";
@@ -127,6 +132,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		@SuppressWarnings("unchecked")
 		List<Customer> list = (List<Customer>) this.hibernateTemplate.find(sql, array.toArray());
 		return list;
+	}
+
+	@Override
+	public List<Dict> findcustlevel() {
+		return (List<Dict>)this.hibernateTemplate.find("from Dict");
+		
 	}
 	
 }

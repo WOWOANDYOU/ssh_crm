@@ -6,7 +6,7 @@ import java.util.Set;
 public class Customer {
 	private Integer cid;
 	private String custName;
-	private String custLevel;
+	/*private String custLevel;*/
 	private String custSource;
 	private String custPhone;
 	private String custMobile;
@@ -17,6 +17,15 @@ public class Customer {
 	//一个 客户也可以有多个 被拜访的记录
 	private Set<Visit> setvisit = new HashSet<Visit>();
 	
+	//一个客户有一个 等级 （字典表）一对多
+	private Dict dict;
+	
+	public Dict getDict() {
+		return dict;
+	}
+	public void setDict(Dict dict) {
+		this.dict = dict;
+	}
 	public Set<Visit> getSetvisit() {
 		return setvisit;
 	}
@@ -41,12 +50,12 @@ public class Customer {
 	public void setCustName(String custName) {
 		this.custName = custName;
 	}
-	public String getCustLevel() {
+	/*public String getCustLevel() {
 		return custLevel;
 	}
 	public void setCustLevel(String custLevel) {
 		this.custLevel = custLevel;
-	}
+	}*/
 	public String getCustSource() {
 		return custSource;
 	}

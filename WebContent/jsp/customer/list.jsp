@@ -94,7 +94,8 @@
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${customer.custName }</TD>
-													<TD>${customer.custLevel }</TD>
+													<%-- <TD>${customer.custLevel }</TD> --%>
+													<td>${customer.dict.dname}</td>
 													<TD>${customer.custSource }</TD>
 													<%-- <TD>${customer.custLinkman }</TD> --%>
 													<TD>${customer.custPhone }</TD>
@@ -111,7 +112,8 @@
 													<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD><s:property value="#cust.custName"/></TD>
-													<TD><s:property value="#cust.custLevel"/></TD>
+													<%-- <TD><s:property value="#cust.custLevel"/></TD> --%>
+													<td><s:property value="#cust.dict.dname"/> </td>
 													<TD><s:property value="#cust.custSource"/></TD>
 													<%-- <TD><s:property value="#cust.custLinkman"/></TD> --%>
 													<TD><s:property value="#cust.custPhone"/></TD>
