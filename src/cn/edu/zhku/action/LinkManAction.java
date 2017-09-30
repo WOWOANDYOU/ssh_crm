@@ -127,4 +127,17 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		ServletActionContext.getRequest().setAttribute("listlink", listlink);
 		return "findpage";
 	}
+	//在对联系人多条件查询时 先查询出 所有客户
+	public String toselect() {
+		List<Customer> custlist = customerservice.findAllCust();
+		ServletActionContext.getRequest().setAttribute("custlist", custlist);
+		return "toselectpage";
+	}
+	
+	//对联系人进行复杂查询
+	public String findcomplex() {
+		List<LinkMan> list = linkmanservice.findcomplex(linkman);
+		ServletActionContext.getRequest().setAttribute("linklist", list);
+		return "selectlistpage";
+	}
 }

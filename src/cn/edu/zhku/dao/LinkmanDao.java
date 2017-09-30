@@ -16,4 +16,6 @@ public interface LinkmanDao {
 	public void delete(LinkMan linkman);
 
 	public List<LinkMan> findbyName(String linkName);
+
+	public List<LinkMan> findcomplex(LinkMan linkman);
 }	

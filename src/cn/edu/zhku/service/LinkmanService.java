@@ -39,5 +39,9 @@ public class LinkmanService {
 		return linkmandao.findbyName(linkName);
 		
 	}
+
+	public List<LinkMan> findcomplex(LinkMan linkman) {
+		return linkmandao.findcomplex(linkman);
+	}
 	
 }
