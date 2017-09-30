@@ -10,4 +10,6 @@ public interface VisitDao {
 
 	List<Visit> findall();
 
+	List<Visit> findcomplex(Visit visit);
+
 }

@@ -21,5 +21,9 @@ public class VisitService {
 	public List<Visit> findall() {
 		return visitdao.findall();
 	}
+
+	public List<Visit> findcomplex(Visit visit) {
+		return visitdao.findcomplex(visit);
+	}
 	
 }

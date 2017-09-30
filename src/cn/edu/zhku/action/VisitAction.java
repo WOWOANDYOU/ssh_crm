@@ -61,4 +61,20 @@ public class VisitAction extends ActionSupport implements ModelDriven<Visit>{
 		ServletActionContext.getRequest().setAttribute("visitlist", visitlist);
 		return "showall";
 	}
+	
+	// 多条件查询前
+	 public String beforefindcomplex() {
+		 List<Customer> listcust = customerservice.findAllCust();
+		 List<User> listuser = userservice.findall();
+		 ServletActionContext.getRequest().setAttribute("listcust", listcust);
+		 ServletActionContext.getRequest().setAttribute("listuser", listuser);
+		 return "goselectpage";
+		 
+	 }
+	//多条件查询
+	public String findcomplex() {
+		List<Visit> list = visitservice.findcomplex(visit);
+		ServletActionContext.getRequest().setAttribute("visitlist", list);
+		return "toselectpage";
+	}
 }

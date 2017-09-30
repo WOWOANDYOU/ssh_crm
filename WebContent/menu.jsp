@@ -217,7 +217,7 @@ A.active {
 														target=main>－ 联系人信息查询</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath }/visit_beforefindcomplex"
 														target=main>－ 客户拜访记录查询</A></TD>
 												</TR>
 											</TBODY>

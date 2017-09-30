@@ -66,12 +66,8 @@
 			<!-- 设置错误页面 -->
 			<result name="input">/jsp/error.jsp</result>
 			
-			<result name="toeditpage">/jsp/linkman/edit.jsp</result>
-			
-			<result name="update" type="redirectAction">linkman_findAllLinkMan</result>
-			
-			<result name="deletelinkman" type="redirectAction">linkman_findAllLinkMan</result>
-			<result name="findpage">/jsp/linkman/list.jsp</result>
+			<result name="goselectpage">/jsp/visit/select.jsp</result>
+			<result name="toselectpage">/jsp/visit/selectlist.jsp</result>
 		</action>
 	</package>
 
